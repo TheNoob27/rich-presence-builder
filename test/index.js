@@ -8,4 +8,4 @@
     .interval()
 })
 (require("../src"))
-// (require("discord-rpc-builder"))
+// (require("rich-presence-builder"))

@@ -1,5 +1,5 @@
 {
-  "name": "discord-rpc-builder",
+  "name": "rich-presence-builder",
   "version": "0.0.1",
   "description": "Easily create a Discord Rich Presence.",
   "main": "src/index.js",
@@ -9,6 +9,7 @@
   "keywords": [
     "discord-rpc",
     "discord-rpc-builder",
+    "rich-presence-builder",
     "discordrpcbuilder",
     "rpc-builder",
     "rpcbuilder",
@@ -34,10 +35,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheNoob27/discord-rpc-builder.git"
+    "url": "git+https://github.com/TheNoob27/rich-presence-builder.git"
   },
   "bugs": {
-    "url": "https://github.com/TheNoob27/discord-rpc-builder/issues"
+    "url": "https://github.com/TheNoob27/rich-presence-builder/issues"
   },
-  "homepage": "https://github.com/TheNoob27/discord-rpc-builder#readme"
+  "homepage": "https://github.com/TheNoob27/rich-presence-builder#readme"
 }

@@ -33,6 +33,6 @@ new RichPresence({ clientID: "655390915325591629" })
     }
     return l[label] || l.random()
   })
-  .addButton("Made With discord-rpc-builder <3", "https://github.com/TheNoob27/discord-rpc-builder") //"https://npmjs.com/package/discord-rpc-builder")
+  .addButton("Made With rich-presence-builder <3", "https://github.com/TheNoob27/rich-presence-builder") //"https://npmjs.com/package/rich-presence-builder")
   .interval()
 console.log("Created a RichPresence on an interval!")

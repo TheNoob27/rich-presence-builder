@@ -1,4 +1,4 @@
-declare module "discord-rpc-builder" {
+declare module "rich-presence-builder" {
   import { Client } from "discord-rpc"
 
   type StringResolvable<RichPresence> = string | ((presence?: RichPresence) => string | Promise<string>)

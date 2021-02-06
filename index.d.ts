@@ -1,8 +1,8 @@
 declare module "discord-rpc-builder" {
   import { Client } from "discord-rpc"
 
-  type StringResolvable = string | ((presence?: RichPresence) => string | Promise<string>)
-  type TimeResolvable = number | Date | ((presence?: RichPresence) => number | Date | Promise<number | Date>)
+  type StringResolvable<RichPresence> = string | ((presence?: RichPresence) => string | Promise<string>)
+  type TimeResolvable<RichPresence> = number | Date | ((presence?: RichPresence) => number | Date | Promise<number | Date>)
 
   interface PresenceData {
     clientID?: string,
@@ -40,12 +40,12 @@ declare module "discord-rpc-builder" {
      * @param label The name of the button
      * @param url The url which this button will open once pressed
      */
-    addButton(label: StringResolvable, url?: StringResolvable): this
+    addButton(label: StringResolvable<this>, url?: StringResolvable<this>): this
     /**
      * Add a blank button to this rich presence
      * @param url The url which this button will open once pressed
      */
-    addBlankButton(url?: StringResolvable): this
+    addBlankButton(url?: StringResolvable<this>): this
     /**
      * Clears the rich presence
      */
@@ -54,29 +54,29 @@ declare module "discord-rpc-builder" {
      * Set the state for this rich presence
      * @param text The text for the state
      */
-    setState(text: StringResolvable): this
+    setState(text: StringResolvable<this>): this
     /**
      * Set the details for this rich presence
      * @param text The details
      */
-    setDetails(text: StringResolvable): this
+    setDetails(text: StringResolvable<this>): this
     /**
      * Alias for setDetails
      * @param text
      */
-    setDescription(text: StringResolvable): this
+    setDescription(text: StringResolvable<this>): this
     /**
      * Set the image for this rich presence, along with optional text that displays when the image is hovered over
      * @param icon The key of the image asset. This must be a valid icon added to your rich presence application.
      * @param text The hover over text
      */
-    setLargeImage(icon: StringResolvable, text: StringResolvable): this
+    setLargeImage(icon: StringResolvable<this>, text: StringResolvable<this>): this
     /**
      * Set the small image for this rich presence, along with optional text that displays when the image is hovered over.
      * @param icon The key of the image asset. This must be a valid icon added to your rich presence application.
      * @param text The hover over text
      */
-    setSmallImage(icon: StringResolvable, text: StringResolvable): this
+    setSmallImage(icon: StringResolvable<this>, text: StringResolvable<this>): this
     /**
      * Set the start timestamp for this rich presence
      * @param time The timestamp

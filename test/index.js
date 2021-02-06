@@ -1,4 +1,5 @@
 (async (RichPresence) => {
+  // testing async
   const rp = new RichPresence()
   await rp
     .setState(Math.random)

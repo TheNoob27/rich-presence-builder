@@ -10,7 +10,7 @@ const clients = new Map()
 class RichPresence {
   constructor(data) {
     if (!data) data = {}
-    if (typeof data.clientID === "string" && data.clientID !== clientID || data.transport !== transport) {
+    if (typeof data.clientID === "string" && data.clientID !== clientID || data.transport && data.transport !== transport) {
       this._clientID = data.clientID || clientID
       this._client =
         clients.get(this._clientID) ||
@@ -78,8 +78,8 @@ class RichPresence {
       "largeImageText",
       "smallImage",
       "smallImageText",
-      "buttons"
     ].forEach(k => this[k] = undefined)
+    this.buttons = []
     return this
   }
 
@@ -213,9 +213,8 @@ class RichPresence {
       activity
     })
     if (interval === intervalSymbol) return res
-    this[resolved] = true
+    // this[resolved] = true
 
-    console.log(res)
     const rp = new RichPresence(res)
     rp[resolved] = true
     rp.then = undefined
@@ -270,7 +269,7 @@ class RichPresence {
     return this.go().catch(reject)
   }
 
-  interval(ms = 15000, times) {
+  interval(times, ms = 15000) {
     if (isNaN(times)) {
       this._interval = setInterval(() => this.go(intervalSymbol), Number(ms) || 15000)
     } else {

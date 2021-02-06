@@ -1,0 +1,28 @@
+{
+  "name": "discord-rpc-builder",
+  "version": "0.0.1",
+  "description": "Easily create a Discord Rich Presence.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "keywords": [
+    "discord-rpc",
+    "discord-rpc-builder",
+    "discordrpcbuilder",
+    "rpc",
+    "rpc-builder"
+  ],
+  "author": "TheNoob27",
+  "license": "ISC",
+  "dependencies": {
+    "discord-rpc": "github:discordjs/rpc"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "endOfLine": "lf",
+    "arrowParens": "avoid",
+    "semi": false,
+    "printWidth": 120
+  }
+}

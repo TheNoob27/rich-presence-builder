@@ -10,8 +10,11 @@
     "discord-rpc",
     "discord-rpc-builder",
     "discordrpcbuilder",
-    "rpc",
-    "rpc-builder"
+    "rpc-builder",
+    "rpcbuilder",
+    "rpcmaker",
+    "rpc-maker",
+    "rich-presence"
   ],
   "author": "TheNoob27",
   "license": "ISC",

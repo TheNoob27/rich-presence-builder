@@ -6,19 +6,20 @@ declare module "rich-presence-builder" {
 
   interface PresenceData {
     clientID?: string,
-    state: StringResolvable,
-    details: StringResolvable,
+    state: StringResolvable<any>,
+    details: StringResolvable<any>,
     startTimestamp: number | Date,
-    elapsedTimestamp?: number,
+    elapsedTime?: number,
+    timeLeft?: number,
     endTimestamp: number | Date,
-    largeImageText: StringResolvable,
-    smallImageText: StringResolvable,
+    largeImageText: StringResolvable<any>,
+    smallImageText: StringResolvable<any>,
     buttons: Button[]
   }
 
   interface Button {
-    label: StringResolvable,
-    url: StringResolvable
+    label: StringResolvable<any>,
+    url: StringResolvable<any>
   }
 
   export = class RichPresence {

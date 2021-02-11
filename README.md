@@ -32,6 +32,18 @@ new RichPresence()
   .then(rpc => console.log(rpc.details)) // "then what?"
 ```
 
+
+- You can also use the constructor to define values:
+```js
+await new RichPresence({
+  state: "I am in a state of panic",
+  details: "yes",
+  timeLeft: 60000,
+  buttons: [{ label: "click me", url: "https://discord.com" }]
+})
+```
+
+
 - Everything can also be dynamic:
 ```js
 const rp = new RichPresence()

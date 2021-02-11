@@ -19,18 +19,19 @@ class RichPresence {
 
     this.state = data.state || data.title
     this.details = data.details || data.description
-    this.startTimestamp = data.startTimestamp || data.timestamp || data.timestamps?.start
-    this.endTimestamp = data.endTimestamp || data.timestamps?.end
-    this.largeImage = data.largeImage || data.image || data.assets?.large_image
-    this.largeImageText = data.largeImageText || data.imageText || data.assets?.large_text
-    this.smallImage = data.smallImage || data.assets?.small_image
-    this.smallImageText = data.smallImageText || data.assets?.small_text
+    this.startTimestamp = data.startTimestamp || data.timestamp || data.timestamps && data.timestamps.start
+    this.endTimestamp = data.endTimestamp || data.timestamps && data.timestamps.end
+    this.largeImage = data.largeImage || data.image || data.assets && data.assets.large_image
+    this.largeImageText = data.largeImageText || data.imageText || data.assets && data.assets.large_text
+    this.smallImage = data.smallImage || data.assets && data.assets.small_image
+    this.smallImageText = data.smallImageText || data.assets && data.assets.small_text
     this.buttons = data.buttons
       ? data.buttons.map((label, i) =>
-          typeof label === "string" ? { label, url: data.metadata?.button_urls[i] } : label
+          typeof label === "string" ? { label, url: data.metadata && data.metadata.button_urls[i] || "https://discord.com" } : label
         )
       : []
     if (!this.startTimestamp && typeof data.elapsedTime === "number") this.startTimestamp = Date.now() - data.elapsedTime
+    if (!this.endTimestamp && typeof data.timeLeft === "number") this.endTimestamp = Date.now() + data.timeLeft
     
     this[resolved] = false
   }
@@ -247,7 +248,7 @@ class RichPresence {
           small_text: await p(this.smallImageText),
         }
         : undefined,
-      timestamps: typeof (this.startTimestamp ?? this.endTimestamp ?? null) === "number"
+      timestamps: typeof this.startTimestamp === "number" || this.endTimestamp === "number"
         ? {
             start: await p(this.startTimestamp, true),
             end: await p(this.endTimestamp, true),
